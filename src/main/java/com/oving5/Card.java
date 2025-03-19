@@ -9,7 +9,7 @@ public class Card {
     public Card(char suit, int value) {
         this.suit = suit;
         this.value = value;
-        this.color = getColor();
+        this.color = getColorInit();
     }
 
     public char getSuit() {
@@ -25,12 +25,16 @@ public class Card {
         return value;
     }
 
-    private Color getColor() {
+    private Color getColorInit() {
         if (suit == 'H' || suit == 'D') {
             return Color.RED;
         } else {
             return Color.BLACK;
         }
+    }
+
+    public Color getColor() {
+        return color;
     }
 
     @Override
