@@ -92,14 +92,27 @@ public class Main extends Application {
                 handCheckResultsLabel.setText("Hand Check Results: Hand is empty");
                 return;
             }
+
             int threshold = (int) thresholdSlider.getValue();
             boolean isFlush = hand.isFlush(threshold);
             boolean isStraight = hand.isStraight(threshold);
+            boolean hasSpadeQueen = hand.isSpadeQueen();
+
+            // Calculate the sum of card values
+            int cardSum = hand.getCards().stream().mapToInt(Card::getValue).sum();
+
+            // Get the cards of hearts
+            StringBuilder heartsCards = new StringBuilder();
+            hand.getSpesificSuit('H').forEach(card -> heartsCards.append(card.toString()).append(", "));
 
             // Update the results label
             StringBuilder result = new StringBuilder("Hand Check Results:\n");
             result.append("Flush (").append(threshold).append("): ").append(isFlush).append("\n");
-            result.append("Straight (").append(threshold).append("): ").append(isStraight);
+            result.append("Straight (").append(threshold).append("): ").append(isStraight).append("\n");
+            result.append("Card Sum: ").append(cardSum).append("\n");
+            result.append("Cards of Hearts: ").append(heartsCards.isEmpty() ? "None" : heartsCards).append("\n");
+            result.append("Has Spade Queen: ").append(hasSpadeQueen);
+
             handCheckResultsLabel.setText(result.toString());
         });
 
