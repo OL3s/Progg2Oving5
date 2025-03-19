@@ -90,4 +90,16 @@ public class Card {
     public String toString() {
         return String.valueOf(suit) + value;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof Card)) {
+            return false;
+        }
+        Card card = (Card) obj;
+        return card.getSuit() == suit && card.getValue() == value;
+    }
 }
