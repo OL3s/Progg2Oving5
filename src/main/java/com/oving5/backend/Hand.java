@@ -91,6 +91,11 @@ public class Hand extends Deck {
                 .forEach(c -> printString.append(c.toString()).append(", "));
     }
 
+    public boolean isSpadeQueen() {
+        return getCards().stream()
+                .anyMatch(card -> card.getSuit() == 'S' && card.getValue() == 12);
+    }
+
 
 
 }
