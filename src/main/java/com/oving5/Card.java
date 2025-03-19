@@ -20,6 +20,7 @@ public class Card {
      * Returns a string array with the suit image and value of the card
      * @param suit: char, the suit of the card
      * @param value: int, the value of the card
+     * @return String[], the suit image and value of the card
      */
     public static String[] getCardStringDraw(char suit, int value) {
         return new String[]{suitToString(suit), String.valueOf(value)};
@@ -28,6 +29,7 @@ public class Card {
     /*
      * Method to convert the suit to a string as an image
      * @param suit: char, the suit of the card
+     * @return String, the suit as an image in string format
      */
     public static String suitToString(char suit) {
         switch (suit) {
