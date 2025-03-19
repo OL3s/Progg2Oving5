@@ -17,7 +17,7 @@ public class Hand extends Deck {
     }
 
     public boolean isFlush(int threshold) {
-
+    
         // Check if the hand has a flush
         for(char suit : Card.getSuits()) {
             int count = 0;
@@ -35,19 +35,30 @@ public class Hand extends Deck {
     }
 
     public boolean isStraight(int threshold) {
-
-        for(Card cards : getCards()) {
-            int count = 0;
-            for(Card card : getCards()) {
-                if(cards.getValue() == card.getValue() + 1) {
-                    count++;
-                }
-            }
-            if(count >= threshold) {
-                return true;
-            }
+        // Handle edge cases
+        if (cards.size() < threshold) {
+            return false;
         }
-
+    
+        // Sort the cards by value
+        sortValue();
+    
+        int count = 0;
+        int currentValue = cards.get(0).getValue();
+    
+        for (int i = 1; i < cards.size(); i++) {
+            int gap = cards.get(i).getValue() - currentValue;
+    
+            if (gap == 1) { // Increment count for consecutive cards
+                count++;
+                if (count >= threshold - 1) return true; // Adjust for threshold
+            } else if (gap > 1) { // Reset count if gap is too large
+                count = 0;
+            }
+    
+            currentValue = cards.get(i).getValue();
+        }
+    
         return false;
     }
 

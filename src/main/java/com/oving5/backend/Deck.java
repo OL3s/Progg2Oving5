@@ -19,6 +19,7 @@ public class Deck {
     }
 
     private void fillDeck() {
+        cards.clear();
         for (char suit : Card.getSuits()) {
             for (int value = 1; value <= 13; value++) {
                 cards.add(new Card(suit, value));
@@ -48,6 +49,15 @@ public class Deck {
 
     public void sortShuffle() {
         Collections.shuffle(cards);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Card card : cards) {
+            sb.append(card).append(", ");
+        }
+        return sb.toString();
     }
 
 

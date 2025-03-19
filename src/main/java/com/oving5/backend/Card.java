@@ -34,15 +34,15 @@ public class Card {
     public static String suitToString(char suit) {
         switch (suit) {
             case 'H':
-                return "<3";
+                return "♥";
             case 'D':
-                return "<>";
+                return "♦";
             case 'S':
-                return "|->";
+                return "♠";
             case 'C':
-                return "-3";
+                return "♣";
             default:
-                return "Invalid suit";
+                return "ERROR";
         }
     }
 
