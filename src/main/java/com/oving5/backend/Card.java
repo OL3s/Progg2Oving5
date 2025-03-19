@@ -1,4 +1,4 @@
-package com.oving5;
+package com.oving5.backend;
 import java.awt.Color;
 
 public class Card {

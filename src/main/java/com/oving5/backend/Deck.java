@@ -1,9 +1,9 @@
-package com.oving5;
+package com.oving5.backend;
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
-    private ArrayList<Card> cards;
+    protected ArrayList<Card> cards;
 
     /*
      * Constructor for Deck
@@ -25,7 +25,6 @@ public class Deck {
             }
         }
     }
-
 
     public Card drawAt(int Index) {
         return cards.remove(Index);
