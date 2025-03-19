@@ -9,11 +9,15 @@ public class Card {
     public Card(char suit, int value) {
         this.suit = suit;
         this.value = value;
-        this.color = getColorInit();
+        this.color = getColor();
     }
 
     public char getSuit() {
         return suit;
+    }
+
+    public static char[] getSuits() {
+        return new char[]{'H', 'D', 'S', 'C'};
     }
 
 
@@ -21,11 +25,7 @@ public class Card {
         return value;
     }
 
-    public Color getColor() {
-        return color;
-    }
-
-    private Color getColorInit() {
+    private Color getColor() {
         if (suit == 'H' || suit == 'D') {
             return Color.RED;
         } else {
