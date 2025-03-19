@@ -31,7 +31,7 @@ public class Main extends Application {
         Hand hand = new Hand();
 
         // Create a container to display the cards
-        HBox cardDisplay = new HBox(10); // Horizontal box with 10px spacing
+        HBox cardDisplay = new HBox(10);
         cardDisplay.setAlignment(Pos.CENTER);
 
         // Label to show the deck card count
@@ -39,7 +39,7 @@ public class Main extends Application {
         deckCountLabel.setFont(Font.font(16));
 
         // Slider for threshold
-        Slider thresholdSlider = new Slider(1, 10, 3); // Min: 1, Max: 5, Default: 3
+        Slider thresholdSlider = new Slider(1, 10, 3);
         thresholdSlider.setShowTickLabels(true);
         thresholdSlider.setShowTickMarks(true);
         thresholdSlider.setMajorTickUnit(1);
@@ -106,22 +106,22 @@ public class Main extends Application {
         // Button to sort the hand by suit
         Button sortSuitButton = new Button("Sort by Suit");
         sortSuitButton.setOnAction(e -> {
-            hand.sortSuit(); // Sort the hand by suit
-            cardDisplay.getChildren().clear(); // Clear the current display
+            hand.sortSuit();
+            cardDisplay.getChildren().clear(); 
             for (Card card : hand.getCards()) {
-                StackPane cardPane = createCardPane(card); // Create a new card pane for each card
-                cardDisplay.getChildren().add(cardPane); // Add the sorted cards back to the display
+                StackPane cardPane = createCardPane(card);
+                cardDisplay.getChildren().add(cardPane);
             }
         });
 
         // Button to sort the hand by value
         Button sortValueButton = new Button("Sort by Value");
         sortValueButton.setOnAction(e -> {
-            hand.sortValue(); // Sort the hand by value
-            cardDisplay.getChildren().clear(); // Clear the current display
+            hand.sortValue(); 
+            cardDisplay.getChildren().clear();
             for (Card card : hand.getCards()) {
-                StackPane cardPane = createCardPane(card); // Create a new card pane for each card
-                cardDisplay.getChildren().add(cardPane); // Add the sorted cards back to the display
+                StackPane cardPane = createCardPane(card); 
+                cardDisplay.getChildren().add(cardPane); 
             }
         });
 
@@ -130,7 +130,7 @@ public class Main extends Application {
         buttonBox.setAlignment(Pos.CENTER);
 
         // Set up the layout
-        VBox layout = new VBox(20); // Vertical box with 20px spacing
+        VBox layout = new VBox(20); 
         layout.setAlignment(Pos.CENTER);
         layout.getChildren().addAll(deckCountLabel, cardDisplay, buttonBox, sliderBox, handCheckResultsLabel);
 
@@ -168,21 +168,21 @@ public class Main extends Application {
         // Create the value text for the top-left corner
         Text topLeftValue = new Text(value);
         topLeftValue.setFont(Font.font(14));
-        topLeftValue.setFill(fxColor); // Set font color to match the card's color
-        topLeftValue.setTranslateX(-35); // Position in the top-left corner
+        topLeftValue.setFill(fxColor); 
+        topLeftValue.setTranslateX(-35); 
         topLeftValue.setTranslateY(-60);
     
         // Create the value text for the bottom-right corner
         Text bottomRightValue = new Text(value);
         bottomRightValue.setFont(Font.font(14));
-        bottomRightValue.setFill(fxColor); // Set font color to match the card's color
-        bottomRightValue.setTranslateX(35); // Position in the bottom-right corner
+        bottomRightValue.setFill(fxColor); 
+        bottomRightValue.setTranslateX(35); 
         bottomRightValue.setTranslateY(60);
     
         // Create the suit text for the center
         Text suitText = new Text(suit);
-        suitText.setFont(Font.font(40)); // Larger font for the suit
-        suitText.setFill(fxColor); // Set font color to match the card's color
+        suitText.setFont(Font.font(40)); 
+        suitText.setFill(fxColor);
     
         // Add all elements to the card pane
         cardPane.getChildren().addAll(topLeftValue, suitText, bottomRightValue);
